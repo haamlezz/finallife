@@ -15,7 +15,13 @@ include 'src/confguration.php';
 <head>
     <meta charset="utf-8">
     <title><?php echo SITE_TITLE; ?></title>
-    <meta name="description" content="">
+    <meta name="title" content="ລະບົບຝາກປະຫວັດ">
+    <meta name="description" content="ລະບົບຝາກປະຫວັດ ເພື່ອການເຂົ້າສະມັກວຽກ ໂດຍ ທ້າວ ວິຍະເດດ ຂັນຕິວົງ ນັກສຶກສາ ປີ 3 ວິທະຍາໄລ ລາວ-ທ໊ອບ ສົກສຶກສາ 2018-2019">
+    <meta name="keywords" content="ຈັດຫາງານ, ຝາກປະຫວັດ, ວິຍະເດດ, ຂັນຕິວົງ, ວິທະຍາໄລ, ລາວ-ທ໊ອບ">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="Lao">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="images/favicon.ico">
 
