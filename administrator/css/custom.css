@@ -1,0 +1,46 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanslao.css);
+
+body {
+    background-color: #eee;
+}
+
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-family: 'Noto Sans Lao', sans-serif;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.shadow {
+    box-shadow: 0 1px 6px rgba(57, 73, 76, .35);
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.border {
+    border: #eee solid thin;
+    border-radius: 20px;
+}
+
+.col {
+    margin: 10px;
+    padding: 10px;
+}
+
+.status {
+    border-radius: 50%;
+}

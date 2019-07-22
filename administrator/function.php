@@ -1,4 +1,5 @@
 <?php
+$file = 1; //for check
 
 function get_hash($string)
 {
@@ -62,14 +63,6 @@ function get_exps($user_id)
     return $str;
 }
 
-function check_owner($user_id)
-{
-    if ($_SESSION['user_id'] == $user_id) {
-        return TRUE;
-    }
-    return FALSE;
-}
-
 
 function get_gender($gender)
 {
@@ -103,11 +96,54 @@ function error_msg($msg, $error_no)
     }
     echo $msg;
     echo '</div>';
+    unset($_SESSION['error']);
 }
 
 function check_selected_option($data, $selected)
 {
     if ($data == $selected) {
         return ' selected ';
+    }
+}
+
+function is_admin()
+{
+    if (is_logged_in()) {
+        if ($_SESSION['admin']) {
+            return true;
+        }
+    }
+    return false;
+}
+
+function restrict_access()
+{
+    if (!is_admin()) {
+        $_SESSION['error'] = ['no' => 1, 'msg' => 'ທ່ານບໍ່ມີສິດເຂົ້າເຖິງຂໍ້ມູນ'];
+        header('Location:login.php');
+    }
+}
+
+function get_status($status)
+{
+    switch ($status) {
+        case 0:
+            $str = '<span class="text-success">ປົກກະຕິ</span>';
+            break;
+        case 1:
+            $str = '<span class="text-warning">ຖືກຕັກເຕືອນ</span>';
+            break;
+        case 2:
+            $str = '<span class="text-danger">ຖືກລ໊ອກ</span>';
+            break;
+    }
+
+    return $str;
+}
+
+function get_admin($no)
+{
+    if ($no == 1) {
+        return '(ຜູ້ດູແລ)';
     }
 }
