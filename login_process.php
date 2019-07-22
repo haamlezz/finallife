@@ -29,20 +29,29 @@ if ($_POST) {
 
             if ($rs->num_rows == 1) {
                 $row = $rs->fetch_array();
-
-                if (password_verify($password, $row['password'])) {
-                    $_SESSION['login'] = TRUE;
-                    $_SESSION['user_name'] = $row['user_name'];
-                    $_SESSION['user_full_name'] = $row['f_name'] . ' ' . $row['l_name'];
-                    $_SESSION['user_id'] = $row['id'];
-
-                    if ($row['role'] == 1) {
-                        $_SESSION['admin'] = TRUE;
-                    }
-
-                    header('Location:profile.php');
+                if ($row['status'] == 1) {
+                    $_SESSION['error'] = ['msg' => 'ບັນຊີທ່ານຖືກລະງັບຊົ່ວຄາວ ເນື່ອງຈາກທ່ານກະທຳຜິດກົດ ກະລຸນາຕິດຕໍ່ທີມງານເພື່ອຂໍໃຊ້ງານ', 'no' => 1];
+                    header('Location:login.php');
+                } else if ($row['status'] == 2) {
+                    $_SESSION['error'] = ['msg' => 'ບັນຊທ່ານຖືກລະງັບຖາວອນ ເນື່ອງຈາກທ່ານກະທຳຜິດກົດຮ້າຍແຮງ', 'no' => 1];
+                    header('Location:login.php');
                 } else {
-                    header('Location:login.php?error=1');
+                    if (password_verify($password, $row['password'])) {
+
+                        $_SESSION['login'] = TRUE;
+                        $_SESSION['user_name'] = $row['user_name'];
+                        $_SESSION['user_full_name'] = $row['f_name'] . ' ' . $row['l_name'];
+                        $_SESSION['user_id'] = $row['id'];
+
+                        if ($row['role'] == 1) {
+                            $_SESSION['admin'] = TRUE;
+                        }
+
+                        header('Location:profile.php');
+                    } else {
+                        $_SESSION['error'] = ['msg' => 'ຂໍ້ມູນບໍ່ຖືກຕ້ອງ ກະລຸນາລອງໃໝ່', 'no' => 1];
+                        header('Location:login.php');
+                    }
                 }
             }
         }

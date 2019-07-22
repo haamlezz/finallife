@@ -103,6 +103,7 @@ function error_msg($msg, $error_no)
     }
     echo $msg;
     echo '</div>';
+    unset($_SESSION['error']);
 }
 
 function check_selected_option($data, $selected)

@@ -31,6 +31,8 @@ if ($_GET) {
             JOIN users ON educations.user_id = users.id
             WHERE 
                 educations.education_name LIKE '%$search%'
+            AND
+                users.status = 0
             GROUP BY educations.user_id
             ";
 

@@ -53,10 +53,8 @@ if (is_logged_in()) {
         <div class="col-md-6 offset-md-4">
             <h1>ເຂົ້າສູ່ລະບົບ</h1>
             <?php
-            if (isset($_GET['error'])) {
-                echo '<div id="alert" class="alert alert-danger">
-                        ຂໍ້ມູນຜິດພາດ ກະລຸນາລອງໃໝ່ອີກຄັ້ງ
-                      </div>';
+            if (isset($_SESSION['error'])) {
+                error_msg($_SESSION['error']['msg'], $_SESSION['error']['no']);
             }
             ?>
             <form action="login_process.php" method="post">

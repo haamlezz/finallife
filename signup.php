@@ -16,7 +16,7 @@
 
     <div class="row">
         <div class="col-md-6 pad-left">
-            <h3 class="text-center">HHHH</h3>
+
         </div>
         <div class="col-md-6 pad-right">
             <h1>ສະມັກສະມາຊິກ</h1>
